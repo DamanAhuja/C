@@ -20,15 +20,16 @@ void view (sn *node) {
     }
 }
 
-void addnode(sn *node) {
-    sn *new = (sn *)malloc(sizeof(sn));
-    new->lp = NULL;
-    new->rp = node;
+sn *addnode(sn *node) {
+    sn *new1 = (sn *)malloc(sizeof(sn));
+    new1->lp = NULL;
+    new1->rp = node;
     int n;
     printf("\nEnter the value for new node: ");
     scanf("%d",&n);
-    new->data = n;
-    node->lp = new;
+    new1->data = n;
+    node->lp = new1;
+    return new1;
 }
 int main() {
     
@@ -59,8 +60,8 @@ int main() {
     four->rp = NULL;
     
     view(one);
-    addnode(one);
-    //view()
+    sn *root=addnode(one);
+    view(root);
     
     free(one);
     one = NULL;
