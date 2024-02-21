@@ -14,16 +14,7 @@ node *newnode (int d) {
     addnode->rp = NULL;
     return addnode;
 }
-void view(node *root) {
-    if (root==NULL) {
-        return;
-    }
-    else {
-        view(root->lp);
-        printf("%d ",root->data);
-        view(root->rp);
-    }
-}
+
 int main() {
     node *root = newnode(1);
     
@@ -35,8 +26,6 @@ int main() {
     
     root->rp->lp=newnode(6);
     root->rp->rp=newnode(7);
-    
-    view(root);
     
     free(root->rp->rp);
     free(root->rp->lp);
